@@ -46,6 +46,18 @@ def get_project_structure(tech_stack):
                         \\"react\\": \\"^18.0.0\\",
                         \\"react-dom\\": \\"^18.0.0\\",
                         \\"react-scripts\\": \\"5.0.1\\"
+                    }},
+                    \\"browserslist\\": {{
+                        \\"production\\": [
+                        \\">0.2%\\",
+                        \\"not dead\\",
+                        \\"not op_mini all\\"
+                        ],
+                        \\"development\\": [
+                        \\"last 1 chrome version\\",
+                        \\"last 1 firefox version\\",
+                        \\"last 1 safari version\\"
+                        ]
                     }}
                 }}"
             }},

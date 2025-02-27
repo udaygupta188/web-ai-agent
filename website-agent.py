@@ -26,32 +26,18 @@ def create_project_files(project_name, tech_stack):
     # Change directory to the project root
     os.chdir(root_folder)
 
-    # Ensure package.json has browserslist
-    package_json_path = os.path.join(root_folder, "package.json")
-    if os.path.exists(package_json_path):
-        with open(package_json_path, "r+", encoding="utf-8") as f:
-            package_data = json.load(f)
-            if "browserslist" not in package_data:
-                package_data["browserslist"] = {
-                    "production": [">0.2%", "not dead", "not op_mini all"],
-                    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
-                }
-                f.seek(0)
-                json.dump(package_data, f, indent=2)
-                f.truncate()
-
-    # Install dependencies silently (avoid npm audit prompts)
+    # Install dependencies (e.g., npm install for React)
     try:
         print("📦 Installing dependencies...")
-        subprocess.run(["npm", "install", "--silent", "--no-audit"], check=True)  
+        subprocess.run(["npm", "install"], check=True)  # Adjust based on tech stack
     except subprocess.CalledProcessError as e:
         print(f"❌ Error installing dependencies: {e}")
         return "❌ Installation failed."
 
-    # Build the project (avoid prompts)
+    # Build the project (if needed)
     try:
         print("⚙️ Building the project...")
-        subprocess.run(["npm", "run", "build"], check=True, input=b"n\n")  
+        subprocess.run(["npm", "run", "build"], check=True)  # Adjust for different tech stacks
     except subprocess.CalledProcessError as e:
         print(f"❌ Error during build: {e}")
         return "❌ Build failed."
