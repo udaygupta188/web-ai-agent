@@ -11,8 +11,8 @@ This AI Agent automates the process of creating and setting up a web application
 ## **Installation**  
 ### **1. Clone the Repository**  
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/udaygupta188/web-ai-agent.git
+cd web-ai-agent
 ```
 
 ### **2. Create a Virtual Environment (Optional but Recommended)**  
